@@ -3,10 +3,11 @@
 
 int main(int argc, char *argv[])
 {
+    Q_INIT_RESOURCE(application);
     QApplication a(argc, argv);
-    a.setWindowIcon(QIcon("C:/Users/Auditor3/Documents/Estructura de datos/Solitario/SolitarioSolitaireMCE.png"));
+    a.setWindowIcon(QIcon(":/images/SolitaireMCE.png"));
     MainWindow w;
-    w.setWindowIcon(QIcon("C:/Users/Auditor3/Documents/Estructura de datos/Solitario/SolitarioSolitaireMCE.png"));
+    w.setWindowIcon(QIcon(":/images/SolitaireMCE.png"));
     w.show();
 
     return a.exec();

@@ -16,7 +16,12 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     carta.cpp
 
+RESOURCES     = application.qrc
+
 HEADERS  += mainwindow.h \
     carta.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    application.qrc
