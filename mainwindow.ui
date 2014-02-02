@@ -18,7 +18,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>800</width>
+    <width>1000</width>
     <height>550</height>
    </size>
   </property>
@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>SolitaireMCE.png</normaloff>SolitaireMCE.png</iconset>
+    <normaloff>images/Solitaire.ico</normaloff>images/Solitaire.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: darkGreen;</string>
@@ -39,8 +39,14 @@
       <x>20</x>
       <y>20</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -55,8 +61,14 @@
       <x>350</x>
       <y>20</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -71,8 +83,14 @@
       <x>460</x>
       <y>20</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -87,8 +105,14 @@
       <x>570</x>
       <y>20</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -103,8 +127,14 @@
       <x>680</x>
       <y>20</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -119,8 +149,14 @@
       <x>20</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -135,8 +171,14 @@
       <x>130</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -151,8 +193,14 @@
       <x>240</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -167,8 +215,14 @@
       <x>350</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -183,8 +237,14 @@
       <x>460</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -199,8 +259,14 @@
       <x>570</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -215,8 +281,14 @@
       <x>680</x>
       <y>190</y>
       <width>100</width>
-      <height>125</height>
+      <height>135</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>

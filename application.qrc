@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>images/SolitaireMCE.png</file>
+        <file>images/Solitaire.ico</file>
     </qresource>
 </RCC>
