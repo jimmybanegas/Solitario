@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include "mazoprincipal.h"
+#include "mazoordenado.h"
+#include "mazomovimientos.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,11 +13,14 @@ int main(int argc, char *argv[])
     w.setWindowIcon(QIcon(":/images/SolitaireMCE.png"));
     w.show();
 
-   MazoPrincipal mazo;
+    MazoPrincipal mazo;
+    MazoOrdenado diamantes;
 
-   mazo.generarCartas();
+    mazo.generarCartas();
+    diamantes.insertar(0, new Nodo('A','N','D'));
+    diamantes.imprimir();
 
-   mazo.imprimir();
+    mazo.imprimir();
 
     return a.exec();
 }

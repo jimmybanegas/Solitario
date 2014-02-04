@@ -16,14 +16,20 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     carta.cpp \
     juego.cpp \
-    mazoprincipal.cpp
+    mazoprincipal.cpp \
+    nodo.cpp \
+    mazoordenado.cpp \
+    mazomovimientos.cpp
 
 RESOURCES     = application.qrc
 
 HEADERS  += mainwindow.h \
     carta.h \
     juego.h \
-    mazoprincipal.h
+    mazoprincipal.h \
+    nodo.h \
+    mazoordenado.h \
+    mazomovimientos.h
 
 FORMS    += mainwindow.ui
 

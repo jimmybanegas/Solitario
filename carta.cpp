@@ -12,7 +12,7 @@ char Carta::getColor()
 
 char Carta::getPalo()
 {
-    return palo;
+    return this->palo;
 }
 
 bool Carta::isCaraAbajo()

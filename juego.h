@@ -2,28 +2,28 @@
 #define JUEGO_H
 #include "carta.h"
 #include "mazoprincipal.h"
+#include "mazoordenado.h"
+#include "mazomovimientos.h"
 
 class Juego
 {
 public:
     MazoPrincipal mazo;
 
-    Carta *diamante[13];
-    Carta *trebol[13];
-    Carta *corazon[13];
-    Carta *espada[13];
+    MazoOrdenado diamante;
+    MazoOrdenado trebol;
+    MazoOrdenado corazon;
+    MazoOrdenado espada;
 
-    Carta *pos1[19];
-    Carta *pos2[19];
-    Carta *pos3[19];
-    Carta *pos4[19];
-    Carta *pos5[19];
-    Carta *pos6[19];
-    Carta *pos7[19];
+    MazoMovimientos uno;
+    MazoMovimientos dos;
+    MazoMovimientos tres;
+    MazoMovimientos cuatro;
+    MazoMovimientos cinco;
+    MazoMovimientos seis;
+    MazoMovimientos siete;
 
-    Carta *barajeadas[3];
 
-    void crearBaraja();
     void distribuir();
     void barajear();
 

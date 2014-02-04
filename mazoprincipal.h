@@ -3,24 +3,22 @@
 #include <iostream>
 using namespace std;
 #include "carta.h"
+#include "nodo.h"
 
 class MazoPrincipal
 {
 public:
     int cont;
+    Nodo *inicio;
 
-    Carta *cartas[50];
-
-    void generarCartas();
-    bool insertar(int pos, Carta *carta);
-    Carta* inicio();
-    Carta* fin();
-    Carta* siguiente(int pos);
-    Carta * recuperar(int pos);
+    bool insertar(int pos, Nodo *nodo);
+    Nodo* fin();
+    Nodo* siguiente(int pos);
+    Nodo* recuperar(int pos);
     bool eliminar(int pos);
-    bool mover(int from, int to);
+    bool mover(int to, int from);
     void imprimir();
-
+    void generarCartas();
     MazoPrincipal();
 };
 
