@@ -6,14 +6,18 @@ using namespace std;
 class Carta
 {
 private:
-    int numero;
-    string color;
-    string palo;
+    char rango;
+    char color;
+    char palo;
+    bool caraAbajo;
+    bool usada;
 public:
-    int getNumero();
-    string getColor();
-    string getPalo();
-    Carta(int numero, string color, string palo);
+    char getRango();
+    char getColor();
+    char getPalo();
+    bool isCaraAbajo();
+    bool isUsada();
+    Carta(char rango, char color, char palo);
 };
 
 #endif // CARTA_H

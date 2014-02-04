@@ -14,12 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    carta.cpp
+    carta.cpp \
+    juego.cpp \
+    mazoprincipal.cpp
 
 RESOURCES     = application.qrc
 
 HEADERS  += mainwindow.h \
-    carta.h
+    carta.h \
+    juego.h \
+    mazoprincipal.h
 
 FORMS    += mainwindow.ui
 

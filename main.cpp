@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include "mazoprincipal.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,6 +10,12 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.setWindowIcon(QIcon(":/images/SolitaireMCE.png"));
     w.show();
+
+   MazoPrincipal mazo;
+
+   mazo.generarCartas();
+
+   mazo.imprimir();
 
     return a.exec();
 }

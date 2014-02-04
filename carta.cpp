@@ -1,24 +1,36 @@
 #include "carta.h"
 
-int Carta::getNumero()
+char Carta::getRango()
 {
-    return this->numero;
+    return this->rango;
 }
 
-string Carta::getColor()
+char Carta::getColor()
 {
     return this->color;
 }
 
-string Carta::getPalo()
+char Carta::getPalo()
 {
-    return this->getPalo();
+    return palo;
 }
 
-Carta::Carta(int numero, string color, string palo)
+bool Carta::isCaraAbajo()
 {
-    this->numero=numero;
+    return caraAbajo;
+}
+
+bool Carta::isUsada()
+{
+    return usada;
+}
+
+Carta::Carta(char rango, char color, char palo)
+{
+    this->rango=rango;
     this->color=color;
     this->palo=palo;
+    this->caraAbajo=true;
+    this->usada=false;
 }
 
