@@ -33,7 +33,7 @@
    <string notr="true">background-color: darkGreen;</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QFrame" name="frame">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -42,11 +42,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -54,8 +66,48 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>20</y>
+      <width>100</width>
+      <height>135</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -64,11 +116,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -76,8 +140,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_3">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -86,11 +153,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -98,8 +177,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_4">
+   <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -108,11 +190,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -120,8 +214,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_5">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -130,11 +227,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -142,8 +251,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_6">
+   <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -152,11 +264,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -164,8 +288,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_7">
+   <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -174,11 +301,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -186,8 +325,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_8">
+   <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
       <x>240</x>
@@ -196,11 +338,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -208,8 +362,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_9">
+   <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -218,11 +375,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -230,8 +399,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_10">
+   <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -240,11 +412,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -252,8 +436,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_11">
+   <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -262,11 +449,23 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -274,8 +473,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <widget class="QFrame" name="frame_12">
+   <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
       <x>680</x>
@@ -284,17 +486,32 @@
       <height>135</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>135</height>
+     </size>
+    </property>
     <property name="maximumSize">
      <size>
       <width>100</width>
       <height>135</height>
      </size>
     </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

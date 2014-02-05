@@ -10,8 +10,7 @@ void Juego::distribuir()
 
     srand (time(NULL));
 
-     /* generate secret number between 1 and 10: */
-
+  //Generando los números de cartas aleatoriamente que estarán en las posiciones de movimientos
    for(int i=0;i<1;i++)
    {
     random = rand() % (mazo.cont);
@@ -93,7 +92,6 @@ void Juego::distribuir()
    }
 
    cout<<mazo.cont<<endl;
-
 
 }
 
