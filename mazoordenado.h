@@ -5,6 +5,7 @@ using namespace std;
 #include "carta.h"
 #include "nodo.h"
 #include"mazoprincipal.h"
+#include <stdlib.h>
 
 class MazoOrdenado : public MazoPrincipal
 {

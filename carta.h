@@ -9,9 +9,9 @@ private:
     char rango;
     char color;
     char palo;
-    bool caraAbajo;
     bool usada;
 public:
+    bool caraAbajo;
     char getRango();
     char getColor();
     char getPalo();

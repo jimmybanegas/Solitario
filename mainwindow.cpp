@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAcceptDrops(true);
+
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)

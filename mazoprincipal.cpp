@@ -120,7 +120,7 @@ void MazoPrincipal::imprimir()
     cout<<"\nContador: "<<cont<<endl;
       Nodo *tem=inicio;
       for(int i=0;i<cont;i++){
-        cout<<tem->carta->getColor()<<tem->carta->getPalo()<<tem->carta->getRango()<<endl  ;
+        cout<<tem->carta->isCaraAbajo()<<tem->carta->getColor()<<tem->carta->getPalo()<<tem->carta->getRango()<<endl  ;
         tem=tem->siguiente;
       }
 }

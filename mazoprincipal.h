@@ -4,6 +4,7 @@
 using namespace std;
 #include "carta.h"
 #include "nodo.h"
+#include <stdlib.h>
 
 class MazoPrincipal
 {

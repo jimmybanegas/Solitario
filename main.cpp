@@ -3,6 +3,7 @@
 #include "mazoprincipal.h"
 #include "mazoordenado.h"
 #include "mazomovimientos.h"
+#include "juego.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,14 +14,17 @@ int main(int argc, char *argv[])
     w.setWindowIcon(QIcon(":/images/SolitaireMCE.png"));
     w.show();
 
-    MazoPrincipal mazo;
-    MazoOrdenado diamantes;
+    Juego solitario;
 
-    mazo.generarCartas();
-    diamantes.insertar(0, new Nodo('A','N','D'));
-    diamantes.imprimir();
+    solitario.distribuir();
 
-    mazo.imprimir();
+    solitario.uno.imprimir();
+    solitario.dos.imprimir();
+    solitario.tres.imprimir();
+    solitario.cuatro.imprimir();
+    solitario.cinco.imprimir();
+    solitario.seis.imprimir();
+    solitario.siete.imprimir();
 
     return a.exec();
 }
