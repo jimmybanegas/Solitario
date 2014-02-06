@@ -1,16 +1,16 @@
 #include "carta.h"
 
-char Carta::getRango()
+QString Carta::getRango()
 {
     return this->rango;
 }
 
-char Carta::getColor()
+QString Carta::getColor()
 {
     return this->color;
 }
 
-char Carta::getPalo()
+QString Carta::getPalo()
 {
     return this->palo;
 }
@@ -23,6 +23,12 @@ bool Carta::isCaraAbajo()
 bool Carta::isUsada()
 {
     return usada;
+}
+
+QString Carta::nombre()
+{
+    QString nombre=this->palo+""+rango;
+    return nombre;
 }
 
 Carta::Carta(char rango, char color, char palo)

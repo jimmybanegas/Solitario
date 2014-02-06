@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     mazoordenado.cpp \
     mazomovimientos.cpp
 
-RESOURCES     = application.qrc
+RESOURCES     = \
+    application.qrc
 
 HEADERS  += mainwindow.h \
     carta.h \
@@ -33,5 +34,4 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-RESOURCES += \
-    application.qrc
+RESOURCES +=
