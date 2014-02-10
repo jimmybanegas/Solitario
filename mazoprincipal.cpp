@@ -134,6 +134,7 @@ void MazoPrincipal::ponerPixmap()
       Nodo *tem=inicio;
       for(int i=0;i<cont;i++){
         tem->carta->setPixmap(imagenes[i]);
+        tem=tem->siguiente;
       }
 }
 

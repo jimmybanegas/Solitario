@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
 }
 
 
-void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+/*void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 {
   event->accept();
 }
@@ -39,112 +39,30 @@ void MainWindow::dropEvent(QDropEvent *event)
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
  event->accept();
-}
+}*/
 
-void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ){
+void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crecer){
 
-//int y=190;
    for(int i=0; i<mazo.cont; i++){
-/*
+    QPixmap actual =  QPixmap(":/images/cards/Back.png");
+    if(!mazo.recuperar(i)->carta->isCaraAbajo())
+    {
+     actual = mazo.recuperar(i)->carta->getImagen();
+    }
 
-   // QPushButton* button = new QPushButton;
-     QLabel *labe = new QLabel;
-   // button->setGeometry(QRect(x, y, 99, 135));
-
-      labe->setStyleSheet("background-image: url("+path+");");
- //   button->setIcon(QIcon(path));
-      ui->verticalLayout->addWidget(labe);
-
-      labe->show();*/
-
-      escena=new QGraphicsScene(0,0,800,550);
-
-     //  escena->addItem(mazo.recuperar(i));
-
-     //  vista=new QGraphicsView(escena);
-       widgetCentral= new QWidget(this);
-       this->setCentralWidget(widgetCentral);
-
+    QLabel *a = new QLabel(this);
+    a->setPixmap(actual);
+    a->setGeometry(x,y,99,135);
+    a->setAcceptDrops(true);
+    a->raise();
+    a->show();
+    y+=crecer;
   }
-
-}
-
-void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ){
-/*
-//int y=190;
-   for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_2->addWidget(labe);
-     labe->show();
-  }*/
-}
-void MainWindow::crearCartasVisuales3(MazoPrincipal mazo, int x ){
-
-//int y=190;
- /*  for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_3->addWidget(labe);
-     labe->show();
-  }*/
-}
-void MainWindow::crearCartasVisuales4(MazoPrincipal mazo, int x ){
-/*
-//int y=190;
-   for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_4->addWidget(labe);
-     labe->show();
-  }*/
-}
-void MainWindow::crearCartasVisuales5(MazoPrincipal mazo, int x ){
-/*
-//int y=190;
-   for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_5->addWidget(labe);
-     labe->show();
-  }*/
-}
-void MainWindow::crearCartasVisuales6(MazoPrincipal mazo, int x ){
-/*
-//int y=190;
-   for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_6->addWidget(labe);
-     labe->show();
-  }*/
-}
-void MainWindow::crearCartasVisuales7(MazoPrincipal mazo, int x ){
-/*
-//int y=190;
-   for(int i=0; i<mazo.cont; i++){
-
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-     QLabel *labe = new QLabel;
-      labe->setStyleSheet("background-image: url("+path+");");
-      ui->verticalLayout_7->addWidget(labe);
-     labe->show();
-   }*/
 }
 
 void MainWindow::barajear(MazoPrincipal mazo)
 {
- /*   int random;
+ /* int random;
     srand (time(NULL));
 
     for(int i=0; i<3; i++){
@@ -189,4 +107,101 @@ void MainWindow::on_pushButton_clicked()
         this->barajear(this->mazo);*/
 
 
+}
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void MainWindow::dragMoveEvent(QDragMoveEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
+        QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
+        QDataStream dataStream(&itemData, QIODevice::ReadOnly);
+
+        QPixmap pixmap;
+        QPoint offset;
+        dataStream >> pixmap >> offset;
+
+        QLabel *newIcon = new QLabel(this);
+        newIcon->setPixmap(pixmap);
+        newIcon->move(event->pos() - offset);
+        newIcon->show();
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+
+        if (event->source() == this) {
+            event->setDropAction(Qt::MoveAction);
+            event->accept();
+        } else {
+            event->acceptProposedAction();
+        }
+    } else {
+        event->ignore();
+    }
+}
+
+//! [1]
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
+    if (!child)
+        return;
+
+    QPixmap pixmap = *child->pixmap();
+
+    QByteArray itemData;
+    QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+    dataStream << pixmap << QPoint(event->pos() - child->pos());
+//! [1]
+
+//! [2]
+    QMimeData *mimeData = new QMimeData;
+    mimeData->setData("application/x-dnditemdata", itemData);
+//! [2]
+
+//! [3]
+    QDrag *drag = new QDrag(this);
+    drag->setMimeData(mimeData);
+    drag->setPixmap(pixmap);
+    drag->setHotSpot(event->pos() - child->pos());
+//! [3]
+
+    QPixmap tempPixmap = pixmap;
+    QPainter painter;
+    painter.begin(&tempPixmap);
+    painter.fillRect(pixmap.rect(), QColor(127, 127, 127, 127));
+    painter.end();
+
+    child->setPixmap(tempPixmap);
+
+    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
+        child->close();
+    } else {
+        child->show();
+        child->setPixmap(pixmap);
+    }
 }

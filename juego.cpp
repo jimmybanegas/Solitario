@@ -16,6 +16,7 @@ void Juego::distribuir()
    {
     random = rand() % (mazo.cont);
     Nodo *sel=mazo.recuperar(random);
+    sel->carta->caraAbajo=false;
     mazo.eliminar(random);
     uno.insertar(i,sel);
    }

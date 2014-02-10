@@ -12,7 +12,7 @@
 #include "QVBoxLayout"
 #include <stdlib.h>
 #include <time.h>
-
+#include <QPainter>
 
 namespace Ui {
    class MainWindow;
@@ -22,23 +22,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    //QGraphicsView *vista;
-    QGraphicsScene *escena;
-    QTimer *timer;
-    QWidget *widgetCentral;
 
 public:
-  //  Ui::MainWindow *ui;
     MazoPrincipal mazo;
 
-    void crearCartasVisuales(MazoPrincipal mazo, int x);
-    void crearCartasVisuales2(MazoPrincipal mazo, int x);
-    void crearCartasVisuales3(MazoPrincipal mazo, int x);
-    void crearCartasVisuales4(MazoPrincipal mazo, int x);
-    void crearCartasVisuales5(MazoPrincipal mazo, int x);
-    void crearCartasVisuales6(MazoPrincipal mazo, int x);
-    void crearCartasVisuales7(MazoPrincipal mazo, int x);
-
+    void crearCartasVisuales(MazoPrincipal mazo, int x, int y, int crecer);
     void barajear(MazoPrincipal mazo);
     void setMazo(MazoPrincipal mazo);
     explicit MainWindow(QWidget *parent = 0);
@@ -46,11 +34,10 @@ public:
 
 private:
        Ui::MainWindow *ui;
-     //QGraphicsScene *scene;
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event);
-    void dragLeaveEvent(QDragLeaveEvent *event);
+   // void dragLeaveEvent(QDragLeaveEvent *event);
     void dragMoveEvent(QDragMoveEvent *event);
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
