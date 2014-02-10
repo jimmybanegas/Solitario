@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
 {
     ui->setupUi(this);
     setAcceptDrops(true);
-
 }
 
 
@@ -46,8 +45,8 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ){
 
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
+/*
 
-    QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
    // QPushButton* button = new QPushButton;
      QLabel *labe = new QLabel;
    // button->setGeometry(QRect(x, y, 99, 135));
@@ -56,14 +55,22 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ){
  //   button->setIcon(QIcon(path));
       ui->verticalLayout->addWidget(labe);
 
-      labe->show();
+      labe->show();*/
+
+      escena=new QGraphicsScene(0,0,800,550);
+
+     //  escena->addItem(mazo.recuperar(i));
+
+     //  vista=new QGraphicsView(escena);
+       widgetCentral= new QWidget(this);
+       this->setCentralWidget(widgetCentral);
 
   }
 
 }
 
 void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ){
-
+/*
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
 
@@ -72,22 +79,22 @@ void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ){
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_2->addWidget(labe);
      labe->show();
-  }
+  }*/
 }
 void MainWindow::crearCartasVisuales3(MazoPrincipal mazo, int x ){
 
 //int y=190;
-   for(int i=0; i<mazo.cont; i++){
+ /*  for(int i=0; i<mazo.cont; i++){
 
     QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
      QLabel *labe = new QLabel;
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_3->addWidget(labe);
      labe->show();
-  }
+  }*/
 }
 void MainWindow::crearCartasVisuales4(MazoPrincipal mazo, int x ){
-
+/*
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
 
@@ -96,10 +103,10 @@ void MainWindow::crearCartasVisuales4(MazoPrincipal mazo, int x ){
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_4->addWidget(labe);
      labe->show();
-  }
+  }*/
 }
 void MainWindow::crearCartasVisuales5(MazoPrincipal mazo, int x ){
-
+/*
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
 
@@ -108,10 +115,10 @@ void MainWindow::crearCartasVisuales5(MazoPrincipal mazo, int x ){
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_5->addWidget(labe);
      labe->show();
-  }
+  }*/
 }
 void MainWindow::crearCartasVisuales6(MazoPrincipal mazo, int x ){
-
+/*
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
 
@@ -120,10 +127,10 @@ void MainWindow::crearCartasVisuales6(MazoPrincipal mazo, int x ){
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_6->addWidget(labe);
      labe->show();
-  }
+  }*/
 }
 void MainWindow::crearCartasVisuales7(MazoPrincipal mazo, int x ){
-
+/*
 //int y=190;
    for(int i=0; i<mazo.cont; i++){
 
@@ -132,12 +139,12 @@ void MainWindow::crearCartasVisuales7(MazoPrincipal mazo, int x ){
       labe->setStyleSheet("background-image: url("+path+");");
       ui->verticalLayout_7->addWidget(labe);
      labe->show();
-   }
+   }*/
 }
 
 void MainWindow::barajear(MazoPrincipal mazo)
 {
-    int random;
+ /*   int random;
     srand (time(NULL));
 
     for(int i=0; i<3; i++){
@@ -147,7 +154,7 @@ void MainWindow::barajear(MazoPrincipal mazo)
           labe->setStyleSheet("background-image: url("+path+");");
           ui->horizontalLayout->addWidget(labe);
           labe->show();
-     }
+     }*/
 }
 
 void MainWindow::setMazo(MazoPrincipal mazo)
@@ -168,7 +175,7 @@ void MainWindow::on_pushButton_clicked()
        // delete ui->horizontalLayout;
   //  }
 
-    QLayoutItem* child;
+   /* QLayoutItem* child;
     while ((child = ui->horizontalLayout->takeAt(0)) != 0)
     {
         if (child->widget() != NULL)
@@ -179,7 +186,7 @@ void MainWindow::on_pushButton_clicked()
     }
 
         cout<<"has dado click"<<endl;
-        this->barajear(this->mazo);
+        this->barajear(this->mazo);*/
 
 
 }

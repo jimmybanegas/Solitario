@@ -5,13 +5,14 @@
 void Juego::distribuir()
 {
     this->mazo.generarCartas();
+    this->mazo.ponerPixmap();
 
     int random;
 
     srand (time(NULL));
 
   //Generando los números de cartas aleatoriamente que estarán en las posiciones de movimientos
-   for(int i=0;i<1;i++)
+  for(int i=0;i<1;i++)
    {
     random = rand() % (mazo.cont);
     Nodo *sel=mazo.recuperar(random);

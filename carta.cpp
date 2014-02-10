@@ -31,6 +31,16 @@ QString Carta::nombre()
     return nombre;
 }
 
+QPixmap Carta::getImagen()
+{
+    return imagen;
+}
+
+void Carta::setPixmap(QPixmap imagen)
+{
+   this->imagen=imagen;
+}
+
 Carta::Carta(char rango, char color, char palo)
 {
     this->rango=rango;

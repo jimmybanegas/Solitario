@@ -5,13 +5,14 @@
 #include "mazoordenado.h"
 #include "juego.h"
 #include <QMainWindow>
-#include "QLineEdit"
+#include <QPixmap>
+#include "elementosgraficos.h"
 #include "qlabel.h"
 #include "QtCore"
 #include "QVBoxLayout"
-//#include "QtGui"
 #include <stdlib.h>
 #include <time.h>
+
 
 namespace Ui {
    class MainWindow;
@@ -21,9 +22,15 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    //QGraphicsView *vista;
+    QGraphicsScene *escena;
+    QTimer *timer;
+    QWidget *widgetCentral;
+
 public:
-    Ui::MainWindow *ui;
+  //  Ui::MainWindow *ui;
     MazoPrincipal mazo;
+
     void crearCartasVisuales(MazoPrincipal mazo, int x);
     void crearCartasVisuales2(MazoPrincipal mazo, int x);
     void crearCartasVisuales3(MazoPrincipal mazo, int x);
@@ -38,7 +45,7 @@ public:
     ~MainWindow();
 
 private:
-   // Ui::MainWindow *ui;
+       Ui::MainWindow *ui;
      //QGraphicsScene *scene;
 
 protected:
