@@ -7,6 +7,7 @@ void Juego::distribuir()
     this->mazo.generarCartas();
     this->mazo.ponerPixmap();
 
+
     int random;
 
     srand (time(NULL));
@@ -19,6 +20,12 @@ void Juego::distribuir()
     sel->carta->caraAbajo=false;
     mazo.eliminar(random);
     uno.insertar(i,sel);
+
+     diamante.insertar(i,sel);
+      corazon.insertar(i,sel);
+       espada.insertar(i,sel);
+        trebol.insertar(i,sel);
+
    }
 
    for(int i=0;i<2;i++)

@@ -5,41 +5,13 @@
 #include <QMimeData>
 #include <QLabel>
 #include <QPixmap>
-#include <QPushButton>
-#include <QLayoutItem>
+#include "milabel.h"
 
 MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     setAcceptDrops(true);
 }
-
-
-/*void MainWindow::dragEnterEvent(QDragEnterEvent *event)
-{
-  event->accept();
-}
-
-void MainWindow::dragLeaveEvent(QDragLeaveEvent *event)
-{
-   event->accept();
-}
-
-void MainWindow::dragMoveEvent(QDragMoveEvent *event)
-{
-    event->accept();
-}
-
-void MainWindow::dropEvent(QDropEvent *event)
-{
-  event->accept();
-}
-
-
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
- event->accept();
-}*/
 
 void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crecer){
 
@@ -50,7 +22,7 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crece
      actual = mazo.recuperar(i)->carta->getImagen();
     }
 
-    QLabel *a = new QLabel(this);
+    miLabel *a = new miLabel(this);
     a->setPixmap(actual);
     a->setGeometry(x,y,99,135);
     a->setAcceptDrops(true);
@@ -147,10 +119,12 @@ void MainWindow::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
-        QLabel *newIcon = new QLabel(this);
+        miLabel *newIcon = new miLabel(this);
         newIcon->setPixmap(pixmap);
         newIcon->move(event->pos() - offset);
+        newIcon->adjustSize();
         newIcon->show();
+
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
         if (event->source() == this) {
@@ -167,7 +141,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 //! [1]
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
+    miLabel *child = static_cast<miLabel*>(childAt(event->pos()));
     if (!child)
         return;
 

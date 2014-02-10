@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     mazoprincipal.cpp \
     nodo.cpp \
     mazoordenado.cpp \
-    mazomovimientos.cpp
+    mazomovimientos.cpp \
+    milabel.cpp
 
 RESOURCES     = \
     application.qrc
@@ -30,7 +31,8 @@ HEADERS  += mainwindow.h \
     mazoprincipal.h \
     nodo.h \
     mazoordenado.h \
-    mazomovimientos.h
+    mazomovimientos.h \
+    milabel.h
 
 FORMS    += mainwindow.ui
 

@@ -6,7 +6,6 @@
 #include "juego.h"
 #include <QMainWindow>
 #include <QPixmap>
-#include "elementosgraficos.h"
 #include "qlabel.h"
 #include "QtCore"
 #include "QVBoxLayout"

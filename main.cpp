@@ -19,6 +19,11 @@ int main(int argc, char *argv[])
      solitario.distribuir();
      solitario.mazo.imprimir();
 
+     solitario.diamante.imprimir();
+     solitario.trebol.imprimir();
+     solitario.corazon.imprimir();
+     solitario.espada.imprimir();
+
      solitario.uno.imprimir();
      solitario.dos.imprimir();
      solitario.tres.imprimir();
@@ -28,6 +33,12 @@ int main(int argc, char *argv[])
      solitario.siete.imprimir();
 
       w.crearCartasVisuales(solitario.mazo,20,41,0);
+
+      w.crearCartasVisuales(solitario.diamante,350,41,0);
+      w.crearCartasVisuales(solitario.corazon,460,41,0);
+      w.crearCartasVisuales(solitario.espada,570,41,0);
+      w.crearCartasVisuales(solitario.trebol,680,41,0);
+
       w.crearCartasVisuales(solitario.uno,20,190,15);
       w.crearCartasVisuales(solitario.dos,130,190,15);
       w.crearCartasVisuales(solitario.tres,240,190,15);
