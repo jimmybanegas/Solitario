@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <QPainter>
+#include "label.h"
 
 namespace Ui {
    class MainWindow;
@@ -23,11 +24,12 @@ class MainWindow : public QMainWindow
 
 
 public:
-    MazoPrincipal mazo;
+    MazoPrincipal *mazo;
+    MazoPrincipal *barajear;
 
-    void crearCartasVisuales(MazoPrincipal mazo, int x, int y, int crecer);
-    void barajear(MazoPrincipal mazo);
-    void setMazo(MazoPrincipal mazo);
+    void crearCartasVisuales(MazoPrincipal mazo, int x, int y, int crecer,int crecerx);
+    void crearCartasVisuales2(MazoPrincipal mazo, int x, int y, int crecer);
+    void setMazo(MazoPrincipal mazo,MazoPrincipal barajear);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -43,7 +45,7 @@ protected:
 
 
 private slots:
-
+    void Mouse_Pressed();
     void on_pushButton_clicked();
 
 };

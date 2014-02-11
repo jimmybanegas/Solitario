@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QPixmap>
 #include "milabel.h"
+#include "label.h"
 
 MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -13,7 +14,28 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     setAcceptDrops(true);
 }
 
-void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crecer){
+void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crecery, int crecerx){
+
+   for(int i=0; i<mazo.cont; i++){
+    QPixmap actual =  QPixmap(":/images/cards/Back.png");
+    if(!mazo.recuperar(i)->carta->isCaraAbajo())
+    {
+     actual = mazo.recuperar(i)->carta->getImagen();
+    }
+
+    Label *a = new Label(this);
+    a->setPixmap(actual);
+    a->setGeometry(x,y,99,135);
+    a->setAcceptDrops(true);
+    a->raise();
+    a->show();
+    y+=crecery;
+    x+=crecerx;
+  }
+}
+
+
+void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ,int y, int crecer){
 
    for(int i=0; i<mazo.cont; i++){
     QPixmap actual =  QPixmap(":/images/cards/Back.png");
@@ -25,31 +47,17 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crece
     miLabel *a = new miLabel(this);
     a->setPixmap(actual);
     a->setGeometry(x,y,99,135);
-    a->setAcceptDrops(true);
+    connect(a, SIGNAL( Mouse_Pressed() ), this, SLOT(Mouse_Pressed()));
     a->raise();
     a->show();
     y+=crecer;
   }
 }
 
-void MainWindow::barajear(MazoPrincipal mazo)
+void MainWindow::setMazo(MazoPrincipal mazo, MazoPrincipal barajear)
 {
- /* int random;
-    srand (time(NULL));
-
-    for(int i=0; i<3; i++){
-          random = rand() % (mazo.cont);
-          QString path = ":/images/cards/"+mazo.recuperar(i)->carta->nombre()+".png";
-          QLabel *labe = new QLabel;
-          labe->setStyleSheet("background-image: url("+path+");");
-          ui->horizontalLayout->addWidget(labe);
-          labe->show();
-     }*/
-}
-
-void MainWindow::setMazo(MazoPrincipal mazo)
-{
-    this->mazo=mazo;
+    this->mazo=&mazo;
+    this->barajear=&barajear;
 }
 
 MainWindow::~MainWindow()
@@ -59,26 +67,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-//    if ( ui->horizontalLayout!= NULL )
- //   {
-
-       // delete ui->horizontalLayout;
-  //  }
-
-   /* QLayoutItem* child;
-    while ((child = ui->horizontalLayout->takeAt(0)) != 0)
-    {
-        if (child->widget() != NULL)
-        {
-            delete (child->widget());
-        }
-        delete child;
-    }
-
-        cout<<"has dado click"<<endl;
-        this->barajear(this->mazo);*/
-
-
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -119,7 +107,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
-        miLabel *newIcon = new miLabel(this);
+        Label *newIcon = new Label(this);
         newIcon->setPixmap(pixmap);
         newIcon->move(event->pos() - offset);
         newIcon->adjustSize();
@@ -141,7 +129,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 //! [1]
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
-    miLabel *child = static_cast<miLabel*>(childAt(event->pos()));
+    Label *child = static_cast<Label*>(childAt(event->pos()));
     if (!child)
         return;
 
@@ -178,4 +166,29 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
         child->show();
         child->setPixmap(pixmap);
     }
+}
+
+void MainWindow::Mouse_Pressed()
+{
+    int random;
+    srand (time(NULL));
+
+    if(barajear->inicio!=NULL)
+    {
+        barajear->eliminar(0);
+        barajear->eliminar(1);
+        barajear->eliminar(1);
+    }
+
+    for(int i=0;i<3;i++)
+    {
+       random = rand() % (mazo->cont);
+       Nodo *sel=mazo->recuperar(random);
+       sel->carta->caraAbajo=false;
+      // mazo.eliminar(random);
+       barajear->insertar(i,sel);
+    }
+   barajear->imprimir();
+   // crearCartasVisuales(barajear,130,41,0,10);
+   cout<<"La has barajeado"<<endl;
 }

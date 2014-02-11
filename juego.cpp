@@ -7,7 +7,6 @@ void Juego::distribuir()
     this->mazo.generarCartas();
     this->mazo.ponerPixmap();
 
-
     int random;
 
     srand (time(NULL));

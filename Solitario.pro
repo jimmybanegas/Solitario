@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     nodo.cpp \
     mazoordenado.cpp \
     mazomovimientos.cpp \
-    milabel.cpp
+    milabel.cpp \
+    label.cpp
 
 RESOURCES     = \
     application.qrc
@@ -32,7 +33,8 @@ HEADERS  += mainwindow.h \
     nodo.h \
     mazoordenado.h \
     mazomovimientos.h \
-    milabel.h
+    milabel.h \
+    label.h
 
 FORMS    += mainwindow.ui
 

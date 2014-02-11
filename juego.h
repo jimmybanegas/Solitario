@@ -14,6 +14,8 @@ class Juego
 public:
     MazoPrincipal mazo;
 
+    MazoPrincipal barajear;
+
     MazoOrdenado diamante;
     MazoOrdenado trebol;
     MazoOrdenado corazon;
