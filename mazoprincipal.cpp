@@ -71,14 +71,13 @@ Nodo *MazoPrincipal::recuperar(int pos)
 {
     if(pos>=cont || pos<0)
            return NULL;
-          int i=0;
-          Nodo *tem=inicio;
-           while(i!=pos){
-               tem=tem->siguiente;
-               i++;
-           }
-           return tem;
-          cout<<"la i"<<i<<endl;
+
+    Nodo *tem=inicio;
+
+    for(int i=0;i<pos;i++){
+       tem=tem->siguiente;
+    }
+    return tem;
 }
 
 bool MazoPrincipal::eliminar(int pos)

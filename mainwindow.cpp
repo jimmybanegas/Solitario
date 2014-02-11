@@ -14,16 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :  QMainWindow(parent), ui(new Ui::MainW
     setAcceptDrops(true);
 }
 
-void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crecery, int crecerx){
+void MainWindow::crearCartasVisuales(MazoPrincipal mazox, int x ,int y, int crecery, int crecerx){
 
-   for(int i=0; i<mazo.cont; i++){
+   for(int i=0; i<mazox.cont; i++){
     QPixmap actual =  QPixmap(":/images/cards/Back.png");
-    if(!mazo.recuperar(i)->carta->isCaraAbajo())
+    if(!mazox.recuperar(i)->carta->isCaraAbajo())
     {
-     actual = mazo.recuperar(i)->carta->getImagen();
+     actual = mazox.recuperar(i)->carta->getImagen();
     }
 
     Label *a = new Label(this);
+    a->nodo=mazox.recuperar(i);
     a->setPixmap(actual);
     a->setGeometry(x,y,99,135);
     a->setAcceptDrops(true);
@@ -35,16 +36,17 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazo, int x ,int y, int crece
 }
 
 
-void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ,int y, int crecer){
+void MainWindow::crearCartasVisuales2(MazoPrincipal mazox, int x ,int y, int crecer){
 
-   for(int i=0; i<mazo.cont; i++){
+   for(int i=0; i<mazox.cont; i++){
     QPixmap actual =  QPixmap(":/images/cards/Back.png");
-    if(!mazo.recuperar(i)->carta->isCaraAbajo())
+    if(!mazox.recuperar(i)->carta->isCaraAbajo())
     {
-     actual = mazo.recuperar(i)->carta->getImagen();
+     actual = mazox.recuperar(i)->carta->getImagen();
     }
 
     miLabel *a = new miLabel(this);
+    a->nodo=mazox.recuperar(i);
     a->setPixmap(actual);
     a->setGeometry(x,y,99,135);
     connect(a, SIGNAL( Mouse_Pressed() ), this, SLOT(Mouse_Pressed()));
@@ -54,19 +56,20 @@ void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ,int y, int crec
   }
 }
 
-void MainWindow::setMazo(MazoPrincipal mazo, MazoPrincipal barajear)
+void MainWindow::setMazo(MazoPrincipal *mazo, MazoPrincipal *barajear)
 {
-    this->mazo=&mazo;
-    this->barajear=&barajear;
+   /* this->mazo=mazo;
+    this->barajear=barajear;*/
+}
+
+void MainWindow::setJuego(Juego juego)
+{
+    juego=juego;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_pushButton_clicked()
-{
 }
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -170,25 +173,63 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::Mouse_Pressed()
 {
-    int random;
+    //int random ;
     srand (time(NULL));
+    int randoms[3];
 
-    if(barajear->inicio!=NULL)
-    {
-        barajear->eliminar(0);
-        barajear->eliminar(1);
-        barajear->eliminar(1);
-    }
+    cout<<juego.mazo.cont;
+
+    cout<<juego.barajear.cont;
+
+     if(juego.barajear.cont!=0)
+     {
+         for(int i=0;i<3;i++)
+         {
+             Nodo *t2=juego.barajear.recuperar(i);
+             juego.mazo.insertar(i,t2);
+             juego.barajear.eliminar(i);
+         }
+     }
+
 
     for(int i=0;i<3;i++)
     {
-       random = rand() % (mazo->cont);
-       Nodo *sel=mazo->recuperar(random);
-       sel->carta->caraAbajo=false;
-      // mazo.eliminar(random);
-       barajear->insertar(i,sel);
+        randoms[i]=rand() % (juego.mazo.cont);
     }
-   barajear->imprimir();
-   // crearCartasVisuales(barajear,130,41,0,10);
+
+
+    for(int i=0;i<3;i++)
+    {
+        Nodo *sel=juego.mazo.recuperar(randoms[i]);
+        cout<<"RAMDOM: "<<randoms[i];
+        juego.mazo.eliminar(randoms[i]);
+        juego.barajear.insertar(i,sel);
+    }
+
+      cout<<"BARAJEAR CONT: "<<&juego.barajear.cont<<endl;
+      cout<<"PRINCIPA CONT: "<<&juego.mazo.cont<<endl;
+
+      juego.barajear.imprimir();
+
+      int x=130;
+      for(int i=0;i<3;i++)
+     {
+         Nodo *temp=juego.barajear.recuperar(i);
+         QPixmap ac = temp->carta->getImagen();
+
+         Label *a = new Label(this);
+         a->setPixmap(ac);
+         a->setGeometry(x,41,99,135);
+         a->raise();
+         a->show();
+         x+=10;
+     }
+
+  //  this->mazo->imprimir();
    cout<<"La has barajeado"<<endl;
+}
+
+void MainWindow::cc()
+{
+
 }

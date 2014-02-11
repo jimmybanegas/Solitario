@@ -7,6 +7,9 @@ using namespace std;
 #include <stdlib.h>
 #include <QPixmap>
 #include <vector>
+#include <iostream>
+
+using namespace std;
 
 class MazoPrincipal
 {

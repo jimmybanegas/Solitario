@@ -24,12 +24,15 @@ class MainWindow : public QMainWindow
 
 
 public:
-    MazoPrincipal *mazo;
-    MazoPrincipal *barajear;
+    Juego juego;
+   // MazoPrincipal *mazo;
+    //MazoPrincipal *barajear;
 
-    void crearCartasVisuales(MazoPrincipal mazo, int x, int y, int crecer,int crecerx);
-    void crearCartasVisuales2(MazoPrincipal mazo, int x, int y, int crecer);
-    void setMazo(MazoPrincipal mazo,MazoPrincipal barajear);
+    void crearCartasVisuales(MazoPrincipal mazox, int x, int y, int crecer,int crecerx);
+    void crearCartasVisuales2(MazoPrincipal mazox, int x, int y, int crecer);
+    void setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear);
+    void setJuego(Juego juego);
+    void cc();
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -46,7 +49,6 @@ protected:
 
 private slots:
     void Mouse_Pressed();
-    void on_pushButton_clicked();
 
 };
 
