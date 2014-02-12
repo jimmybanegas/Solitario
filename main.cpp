@@ -16,6 +16,9 @@ int main(int argc, char *argv[])
 
      Juego solitario;
 
+     w.setMazo(&solitario.mazo,&solitario.barajear);
+     w.setJuego(solitario);
+
      solitario.distribuir();
      solitario.mazo.imprimir();
 
@@ -47,7 +50,6 @@ int main(int argc, char *argv[])
       w.crearCartasVisuales(solitario.seis,570,190,15,0);
       w.crearCartasVisuales(solitario.siete,680,190,15,0);
 
-      w.setMazo(solitario.mazo,solitario.barajear);
 
 
      w.show();
