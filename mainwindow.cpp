@@ -57,7 +57,7 @@ void MainWindow::crearCartasVisuales2(MazoPrincipal mazo, int x ,int y, int crec
 void MainWindow::setMazo(MazoPrincipal mazo, MazoPrincipal barajear)
 {
     this->mazo=&mazo;
-    this->barajear=&barajear;
+    //this->barajear=&barajear;
 }
 
 MainWindow::~MainWindow()
@@ -170,25 +170,25 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::Mouse_Pressed()
 {
-    int random;
-    srand (time(NULL));
+      int random;
+      srand (time(NULL));
 
-    if(barajear->inicio!=NULL)
-    {
-        barajear->eliminar(0);
-        barajear->eliminar(1);
-        barajear->eliminar(1);
-    }
+      random = rand() % (mazo->cont);
+      Nodo *sel=mazo->recuperar(random);
 
-    for(int i=0;i<3;i++)
-    {
-       random = rand() % (mazo->cont);
-       Nodo *sel=mazo->recuperar(random);
-       sel->carta->caraAbajo=false;
+      QPixmap actual=sel->carta->getImagen();
+
+      Label *a = new Label(this);
+      a->setPixmap(actual);
+      a->setGeometry(130,41,99,135);
+     // connect(a, SIGNAL( Mouse_Pressed() ), this, SLOT(Mouse_Pressed()));
+      a->raise();
+      a->show();
+      //  sel->carta->caraAbajo=false;
       // mazo.eliminar(random);
-       barajear->insertar(i,sel);
-    }
-   barajear->imprimir();
+      // barajear->insertar(i,sel);
+ //   }
+  // barajear->imprimir();
    // crearCartasVisuales(barajear,130,41,0,10);
-   cout<<"La has barajeado"<<endl;
+      cout<<"La has barajeado"<<endl;
 }

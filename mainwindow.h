@@ -25,7 +25,7 @@ class MainWindow : public QMainWindow
 
 public:
     MazoPrincipal *mazo;
-    MazoPrincipal *barajear;
+    //MazoPrincipal *barajear;
 
     void crearCartasVisuales(MazoPrincipal mazo, int x, int y, int crecer,int crecerx);
     void crearCartasVisuales2(MazoPrincipal mazo, int x, int y, int crecer);
