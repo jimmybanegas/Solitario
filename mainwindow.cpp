@@ -58,16 +58,21 @@ void MainWindow::crearCartasVisuales2(MazoPrincipal mazox, int x ,int y, int cre
   }
 }
 
-void MainWindow::setMazo(MazoPrincipal *mazo, MazoPrincipal *barajear)
+void MainWindow::setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear,MazoPrincipal *uno,MazoPrincipal *dos,
+                         MazoPrincipal *tres,MazoPrincipal *cuatro,MazoPrincipal *cinco,MazoPrincipal *seis,
+                         MazoPrincipal *siete)
 {
     this->mazo=mazo;
-    //this->barajear=&barajear;
-   /* this->mazo=mazo;
-    this->barajear=barajear;*/
-
+    this->uno=uno;
+    this->dos=dos;
+    this->tres=tres;
+    this->cuatro=cuatro;
+    this->cinco=cinco;
+    this->seis=seis;
+    this->siete=siete;
 }
 
-void MainWindow::setJuego(Juego juego)
+void MainWindow::setJuego(Juego *juego)
 {
     juego=juego;
 }
@@ -93,6 +98,7 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 
 void MainWindow::dragMoveEvent(QDragMoveEvent *event)
 {
+
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -113,22 +119,343 @@ void MainWindow::dropEvent(QDropEvent *event)
 
         QPixmap pixmap;
         QPoint offset;
+
         dataStream >> pixmap >> offset;
 
         Label *newIcon = new Label(this);
         newIcon->setPixmap(pixmap);
         newIcon->move(event->pos() - offset);
         newIcon->adjustSize();
-        newIcon->show();
 
-       // cout<<offset.rx()<<" "<<offset.ry()<<endl;
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
-         newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        bool tirar = false;
+        int rmov;
+        int rult;
+        QString rango1;
+        QString rango2;
 
-        if (event->source() == this) {
+        newIcon->nodo=moviendo->nodo;
+        newIcon->pertenece=moviendo->pertenece;
+
+        if(newIcon->pos().rx()>15 && newIcon->pos().rx() <25)
+        {
+           Nodo *ultimo= uno->recuperar(uno->cont-1);
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+           if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>125 && newIcon->pos().rx() <135)
+        {
+           Nodo *ultimo = dos->recuperar(dos->cont-1);
+
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+            if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+            rult=ultimo->carta->getRango().toInt();
+
+            if(rango2=="0")
+               rult=10;
+            if(rango2=="J")
+                rult=11;
+             if(rango2=="Q")
+                rult=12;
+            if(rango2=="K")
+                rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>235 && newIcon->pos().rx() <245)
+        {
+           Nodo *ultimo= tres->recuperar(tres->cont-1);
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+           if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>345 && newIcon->pos().rx() <355)
+        {
+           Nodo *ultimo= cuatro->recuperar(cuatro->cont-1);
+
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+            if(rango1=="0")
+               rmov=10;
+            if(rango1=="J")
+                rmov=11;
+            if(rango1=="Q")
+                rmov=12;
+            if(rango1=="K")
+                rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>455 && newIcon->pos().rx() <465)
+        {
+           Nodo *ultimo= cinco->recuperar(cinco->cont-1);
+
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+           if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>565 && newIcon->pos().rx() <575)
+        {
+           Nodo *ultimo= seis->recuperar(seis->cont-1);
+
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+           if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov== rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if(newIcon->pos().rx()>675 && newIcon->pos().rx() <685)
+        {
+           Nodo *ultimo= siete->recuperar(siete->cont-1);
+
+           rmov=moviendo->nodo->carta->getRango().toInt();
+
+           rango1 = ultimo->carta->getRango();
+           rango2 = moviendo->nodo->carta->getRango();
+
+           if(rango1=="0")
+              rmov=10;
+           if(rango1=="J")
+               rmov=11;
+           if(rango1=="Q")
+               rmov=12;
+           if(rango1=="K")
+               rmov=13;
+
+           rult=ultimo->carta->getRango().toInt();
+
+           if(rango2=="0")
+              rult=10;
+           if(rango2=="J")
+               rult=11;
+           if(rango2=="Q")
+               rult=12;
+           if(rango2=="K")
+               rult=13;
+
+           if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+                   &&  rmov == rult-1)
+           {
+               cout<<"Si Pasa"<<endl;
+               tirar=true;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+           else
+           {
+               cout<<"No Pasa"<<endl;
+               cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+           }
+
+        }
+
+        if (event->source() == this && tirar) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
+
+            cout<<newIcon->nodo->carta->getColor().toStdString()<<endl;
+            cout<<newIcon->nodo->carta->getPalo().toStdString()<<endl;
+
+            cout<< newIcon->pos().rx()<<"HE SIDO ARROJADO"<<endl;
+            newIcon->show();
+
         } else {
+
             event->acceptProposedAction();
         }
     } else {
@@ -143,18 +470,20 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
    Label *child = static_cast<Label*>(childAt(event->pos()));
    int x=event->pos().rx();
 
-   //event->pos().setX(x+15);
+    moviendo=new Label(this);
+    moviendo->nodo=child->nodo;
+    moviendo->pertenece=child->pertenece;
 
-   //QPoint dos= event->pos();
+   //cout<<moviendo->nodo->carta->getColor().toStdString();
 
-  // Label *child2= static_cast<Label*>(childAt(dos));
 
-   cout<<event->pos().rx()<<" "<<event->pos().ry()<<endl;
+   cout<<"\n"<<event->pos().rx()<<" "<<event->pos().ry()<<endl;
 
     if (!child)
      return;
 
     QPixmap pixmap = *child->pixmap();
+
 
     QByteArray itemData;
 
@@ -162,9 +491,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
     dataStream << pixmap << QPoint(event->pos() - child->pos());
 
-    dataStream<<
-
-    QMimeData *mimeData = new QMimeData;
+    QMimeData * mimeData = new QMimeData;
     mimeData->setData("application/x-dnditemdata", itemData);
 //! [2]
 

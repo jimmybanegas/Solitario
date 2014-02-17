@@ -2,7 +2,7 @@
 
 void MazoPrincipal::generarCartas()
 {
-    char rangos[] = {'A','2','3','4','5','6','7','8','9','0','J','Q','K'};
+    char rangos[] = {'1','2','3','4','5','6','7','8','9','0','J','Q','K'};
 
     for(int i=0;i<13;i++)
     {

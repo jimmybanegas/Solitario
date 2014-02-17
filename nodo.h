@@ -8,6 +8,7 @@ public:
     Carta *carta;
     Nodo *siguiente;
     Nodo(char rango, char color, char palo);
+    Nodo();
 };
 
 #endif // NODO_H

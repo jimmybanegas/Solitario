@@ -29,7 +29,6 @@ public:
     MazoMovimientos seis;
     MazoMovimientos siete;
 
-
     void distribuir();
 
     Juego();

@@ -14,6 +14,7 @@
 #include <QPainter>
 #include "label.h"
 #include <iostream>
+#include "nodo.h"
 using namespace  std;
 
 namespace Ui {
@@ -28,16 +29,28 @@ class MainWindow : public QMainWindow
 public:
 
     MazoPrincipal *mazo;
-    //MazoPrincipal *barajear;
 
-    Juego juego;
+    MazoPrincipal *uno;
+    MazoPrincipal *dos;
+    MazoPrincipal *tres;
+    MazoPrincipal *cuatro;
+    MazoPrincipal *cinco;
+    MazoPrincipal *seis;
+    MazoPrincipal *siete;
+
+    //MazoPrincipal *barajear;
+    Label *moviendo;
+
+    Juego *juego;
    // MazoPrincipal *mazo;
     //MazoPrincipal *barajear;
 
     void crearCartasVisuales(MazoPrincipal mazox, int x, int y, int crecer,int crecerx);
     void crearCartasVisuales2(MazoPrincipal mazox, int x, int y, int crecer);
-    void setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear);
-    void setJuego(Juego juego);
+    void setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear,MazoPrincipal *uno,MazoPrincipal *dos,
+                 MazoPrincipal *tres,MazoPrincipal *cuatro,MazoPrincipal *cinco,MazoPrincipal *seis,
+                 MazoPrincipal *siete);
+    void setJuego(Juego *juego);
     void cc();
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
