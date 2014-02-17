@@ -21,9 +21,9 @@ void Juego::distribuir()
     uno.insertar(i,sel);
 
      diamante.insertar(i,sel);
-      corazon.insertar(i,sel);
-       espada.insertar(i,sel);
-        trebol.insertar(i,sel);
+     corazon.insertar(i,sel);
+     espada.insertar(i,sel);
+     trebol.insertar(i,sel);
 
    }
 
