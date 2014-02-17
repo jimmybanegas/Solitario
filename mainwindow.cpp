@@ -451,6 +451,7 @@ void MainWindow::dropEvent(QDropEvent *event)
             cout<<newIcon->nodo->carta->getColor().toStdString()<<endl;
             cout<<newIcon->nodo->carta->getPalo().toStdString()<<endl;
 
+
             cout<< newIcon->pos().rx()<<"HE SIDO ARROJADO"<<endl;
             newIcon->show();
 
