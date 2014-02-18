@@ -142,6 +142,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         {
            Nodo *ultimo= uno->recuperar(uno->cont-1);
            rmov=moviendo->nodo->carta->getRango().toInt();
+           newIcon->pertenece=uno;
 
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
@@ -186,6 +187,7 @@ void MainWindow::dropEvent(QDropEvent *event)
            Nodo *ultimo = dos->recuperar(dos->cont-1);
 
            rmov=moviendo->nodo->carta->getRango().toInt();
+           newIcon->pertenece=dos;
 
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
@@ -229,6 +231,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         {
            Nodo *ultimo= tres->recuperar(tres->cont-1);
            rmov=moviendo->nodo->carta->getRango().toInt();
+           newIcon->pertenece=tres;
 
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
@@ -273,6 +276,7 @@ void MainWindow::dropEvent(QDropEvent *event)
            Nodo *ultimo= cuatro->recuperar(cuatro->cont-1);
 
            rmov=moviendo->nodo->carta->getRango().toInt();
+           newIcon->pertenece=cuatro;
 
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
@@ -315,6 +319,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         if(newIcon->pos().rx()>455 && newIcon->pos().rx() <465)
         {
            Nodo *ultimo= cinco->recuperar(cinco->cont-1);
+            newIcon->pertenece=cinco;
 
            rmov=moviendo->nodo->carta->getRango().toInt();
 
@@ -359,6 +364,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         if(newIcon->pos().rx()>565 && newIcon->pos().rx() <575)
         {
            Nodo *ultimo= seis->recuperar(seis->cont-1);
+           newIcon->pertenece=seis;
 
            rmov=moviendo->nodo->carta->getRango().toInt();
 
@@ -403,6 +409,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         if(newIcon->pos().rx()>675 && newIcon->pos().rx() <685)
         {
            Nodo *ultimo= siete->recuperar(siete->cont-1);
+           newIcon->pertenece=siete;
 
            rmov=moviendo->nodo->carta->getRango().toInt();
 
@@ -451,6 +458,16 @@ void MainWindow::dropEvent(QDropEvent *event)
             cout<<newIcon->nodo->carta->getColor().toStdString()<<endl;
             cout<<newIcon->nodo->carta->getPalo().toStdString()<<endl;
 
+            moviendo->pertenece->eliminar(moviendo->pertenece->cont-1);
+            newIcon->pertenece->insertar(newIcon->pertenece->cont,newIcon->nodo);
+
+            crearCartasVisuales(*uno,20,190,15,0);
+            crearCartasVisuales(*dos,130,190,15,0);
+            crearCartasVisuales(*tres,240,190,15,0);
+            crearCartasVisuales(*cuatro,350,190,15,0);
+            crearCartasVisuales(*cinco,460,190,15,0);
+            crearCartasVisuales(*seis,570,190,15,0);
+            crearCartasVisuales(*siete,680,190,15,0);
 
             cout<< newIcon->pos().rx()<<"HE SIDO ARROJADO"<<endl;
             newIcon->show();
