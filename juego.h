@@ -7,6 +7,8 @@
 #include "mazomovimientos.h"
 #include <stdlib.h>
 #include <time.h>
+#include "label.h"
+#include "milabel.h"
 using namespace std;
 
 class Juego
@@ -30,6 +32,7 @@ public:
     MazoMovimientos siete;
 
     void distribuir();
+    void crearCartasVisuales(MazoPrincipal mazox, int x, int y, int crecer,int crecerx);
 
     Juego();
 };

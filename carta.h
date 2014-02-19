@@ -26,7 +26,7 @@ public:
     QString nombre();
     QPixmap getImagen();
     void setPixmap(QPixmap imagen);
-    Carta(char rango, char color, char palo);
+    Carta(QString rango, char color, char palo);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);

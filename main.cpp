@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
      w.setMazo(&solitario.mazo,&solitario.barajear, &solitario.uno, &solitario.dos,&solitario.tres,
                &solitario.cuatro, &solitario.cinco, &solitario.seis, &solitario.siete);
 
-     w.setJuego(&solitario);
+     w.setJuego(solitario);
 
      solitario.distribuir();
      solitario.mazo.imprimir();

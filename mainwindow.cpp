@@ -36,6 +36,31 @@ void MainWindow::crearCartasVisuales(MazoPrincipal mazox, int x ,int y, int crec
   }
 }
 
+void MainWindow::crearCartasVisualesB(MazoPrincipal *mazox, int x ,int y, int crecery, int crecerx){
+
+   for(int i=0; i<mazox->cont; i++){
+    QPixmap actual =  QPixmap(":/images/cards/Back.png");
+    if(i==(mazox->cont)-1)
+    {
+        if(!mazox->recuperar(i))
+        {
+         actual = mazox->recuperar(i)->carta->getImagen();
+        }
+    }
+
+
+    Label *a = new Label(this);
+    a->nodo =mazox->recuperar(i);
+    a->pertenece=mazox;
+    a->setPixmap(actual);
+    a->setGeometry(x,y,99,135);
+    a->setAcceptDrops(true);
+    a->raise();
+    a->show();
+    y+=crecery;
+    x+=crecerx;
+  }
+}
 
 void MainWindow::crearCartasVisuales2(MazoPrincipal mazox, int x ,int y, int crecer){
 
@@ -72,7 +97,7 @@ void MainWindow::setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear,MazoPrincip
     this->siete=siete;
 }
 
-void MainWindow::setJuego(Juego *juego)
+void MainWindow::setJuego(Juego juego)
 {
     juego=juego;
 }
@@ -111,6 +136,57 @@ void MainWindow::dragMoveEvent(QDragMoveEvent *event)
     }
 }
 
+/*bool validarMovimiento(int x1, int x2, MazoPrincipal m, Label *newIcon, Label *moviendo)
+{
+    bool tirar = false;
+    int rmov;
+    int rult;
+    QString rango1;
+    QString rango2;
+
+    if(newIcon->pos().rx()>x1 && newIcon->pos().rx() <x2)
+    {
+       Nodo *ultimo= m.recuperar(m.cont-1);
+       rmov=moviendo->nodo->carta->getRango().toInt();
+       newIcon->pertenece=m;
+
+       rango1 = ultimo->carta->getRango();
+       rango2 = moviendo->nodo->carta->getRango();
+
+
+       if(rango1=="J")
+           rmov=11;
+       else if(rango1=="Q")
+           rmov=12;
+       else if(rango1=="K")
+           rmov=13;
+
+       rult=ultimo->carta->getRango().toInt();
+
+       if(rango2=="J")
+           rult=11;
+       if(rango2=="Q")
+           rult=12;
+       if(rango2=="K")
+           rult=13;
+
+       if(ultimo->carta->getColor() != moviendo->nodo->carta->getColor()
+               &&  rmov == rult-1)
+       {
+           cout<<"Si Pasa"<<endl;
+           tirar=true;
+           cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+       }
+       else
+       {
+           cout<<"No Pasa"<<endl;
+           cout<<"RMOV: "<<rmov<<"RULT: "<<rult;
+       }
+
+    }
+    return tirar;
+}*/
+
 void MainWindow::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -135,10 +211,20 @@ void MainWindow::dropEvent(QDropEvent *event)
         QString rango1;
         QString rango2;
 
+
         newIcon->nodo=moviendo->nodo;
         newIcon->pertenece=moviendo->pertenece;
 
-        if(newIcon->pos().rx()>15 && newIcon->pos().rx() <25)
+       /* if(validarMovimiento(15,25,uno,newIcon,moviendo) ||
+        validarMovimiento(125,135,dos,newIcon,moviendo) ||
+        validarMovimiento(235,245,tres,newIcon,moviendo)||
+        validarMovimiento(345,355,cuatro,newIcon,moviendo) ||
+        validarMovimiento(455,465,cinco,newIcon,moviendo)||
+        validarMovimiento(565,575,seis,newIcon,moviendo)||
+        validarMovimiento(675,685,siete,newIcon,moviendo))
+            tirar=true;
+*/
+       if(newIcon->pos().rx()>15 && newIcon->pos().rx() <25)
         {
            Nodo *ultimo= uno->recuperar(uno->cont-1);
            rmov=moviendo->nodo->carta->getRango().toInt();
@@ -147,8 +233,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
            if(rango1=="Q")
@@ -158,8 +242,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -192,8 +274,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
             if(rango1=="Q")
@@ -203,8 +283,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
             rult=ultimo->carta->getRango().toInt();
 
-            if(rango2=="0")
-               rult=10;
             if(rango2=="J")
                 rult=11;
              if(rango2=="Q")
@@ -236,8 +314,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
            if(rango1=="Q")
@@ -247,8 +323,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -281,8 +355,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-            if(rango1=="0")
-               rmov=10;
             if(rango1=="J")
                 rmov=11;
             if(rango1=="Q")
@@ -292,8 +364,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -326,8 +396,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
            if(rango1=="Q")
@@ -337,8 +405,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -371,8 +437,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
            if(rango1=="Q")
@@ -382,8 +446,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -416,8 +478,6 @@ void MainWindow::dropEvent(QDropEvent *event)
            rango1 = ultimo->carta->getRango();
            rango2 = moviendo->nodo->carta->getRango();
 
-           if(rango1=="0")
-              rmov=10;
            if(rango1=="J")
                rmov=11;
            if(rango1=="Q")
@@ -427,8 +487,6 @@ void MainWindow::dropEvent(QDropEvent *event)
 
            rult=ultimo->carta->getRango().toInt();
 
-           if(rango2=="0")
-              rult=10;
            if(rango2=="J")
                rult=11;
            if(rango2=="Q")
@@ -458,18 +516,19 @@ void MainWindow::dropEvent(QDropEvent *event)
             cout<<newIcon->nodo->carta->getColor().toStdString()<<endl;
             cout<<newIcon->nodo->carta->getPalo().toStdString()<<endl;
 
+            cout<<"ANTES: mov"<<moviendo->pertenece->cont<<" "<<newIcon->pertenece->cont<<endl;
+
             moviendo->pertenece->eliminar(moviendo->pertenece->cont-1);
             newIcon->pertenece->insertar(newIcon->pertenece->cont,newIcon->nodo);
 
-            crearCartasVisuales(*uno,20,190,15,0);
-            crearCartasVisuales(*dos,130,190,15,0);
-            crearCartasVisuales(*tres,240,190,15,0);
-            crearCartasVisuales(*cuatro,350,190,15,0);
-            crearCartasVisuales(*cinco,460,190,15,0);
-            crearCartasVisuales(*seis,570,190,15,0);
-            crearCartasVisuales(*siete,680,190,15,0);
+            moviendo->pertenece->recuperar(moviendo->pertenece->cont-1)->carta->caraAbajo=true;
+            newIcon->pertenece->recuperar(newIcon->pertenece->cont-1)->carta->caraAbajo=true;
+
+            crearCartasVisualesB(moviendo->pertenece,130,190,15,0);
+
 
             cout<< newIcon->pos().rx()<<"HE SIDO ARROJADO"<<endl;
+            cout<<"DESPUES: mov"<<moviendo->pertenece->cont<<" "<<newIcon->pertenece->cont<<endl;
             newIcon->show();
 
         } else {
@@ -558,10 +617,5 @@ void MainWindow::Mouse_Pressed()
       a->show();
 
    cout<<"La has barajeado"<<endl;
-
-}
-
-void MainWindow::cc()
-{
 
 }

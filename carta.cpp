@@ -41,7 +41,7 @@ void Carta::setPixmap(QPixmap imagen)
    this->imagen=imagen;
 }
 
-Carta::Carta(char rango, char color, char palo)
+Carta::Carta(QString rango, char color, char palo)
 {
     this->rango=rango;
     this->color=color;

@@ -41,17 +41,18 @@ public:
     //MazoPrincipal *barajear;
     Label *moviendo;
 
-    Juego *juego;
+    Juego juego;
    // MazoPrincipal *mazo;
     //MazoPrincipal *barajear;
 
     void crearCartasVisuales(MazoPrincipal mazox, int x, int y, int crecer,int crecerx);
+    void crearCartasVisualesB(MazoPrincipal *mazox, int x, int y, int crecer,int crecerx);
     void crearCartasVisuales2(MazoPrincipal mazox, int x, int y, int crecer);
     void setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear,MazoPrincipal *uno,MazoPrincipal *dos,
                  MazoPrincipal *tres,MazoPrincipal *cuatro,MazoPrincipal *cinco,MazoPrincipal *seis,
                  MazoPrincipal *siete);
-    void setJuego(Juego *juego);
-    void cc();
+    void setJuego(Juego juego);
+ //   bool validarMovimiento(int x1, int x2, MazoPrincipal m, Label *newIcon, Label *moviendo);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
