@@ -17,17 +17,18 @@ int main(int argc, char *argv[])
      Juego solitario;
 
      w.setMazo(&solitario.mazo,&solitario.barajear, &solitario.uno, &solitario.dos,&solitario.tres,
-               &solitario.cuatro, &solitario.cinco, &solitario.seis, &solitario.siete);
+               &solitario.cuatro, &solitario.cinco, &solitario.seis, &solitario.siete,&solitario.ord1,
+               &solitario.ord2, &solitario.ord3, &solitario.ord4);
 
      w.setJuego(solitario);
 
      solitario.distribuir();
      solitario.mazo.imprimir();
 
-     solitario.diamante.imprimir();
-     solitario.trebol.imprimir();
-     solitario.corazon.imprimir();
-     solitario.espada.imprimir();
+     solitario.ord1.imprimir();
+     solitario.ord2.imprimir();
+     solitario.ord3.imprimir();
+     solitario.ord4.imprimir();
 
      solitario.uno.imprimir();
      solitario.dos.imprimir();
@@ -39,10 +40,10 @@ int main(int argc, char *argv[])
 
       w.crearCartasVisuales2(solitario.mazo,20,41,0);
 
-      w.crearCartasVisuales(solitario.diamante,350,41,0,0);
-      w.crearCartasVisuales(solitario.corazon,460,41,0,0);
-      w.crearCartasVisuales(solitario.espada,570,41,0,0);
-      w.crearCartasVisuales(solitario.trebol,680,41,0,0);
+      w.crearCartasVisuales(solitario.ord1,350,41,0,0);
+      w.crearCartasVisuales(solitario.ord2,460,41,0,0);
+      w.crearCartasVisuales(solitario.ord3,570,41,0,0);
+      w.crearCartasVisuales(solitario.ord4,680,41,0,0);
 
       w.crearCartasVisuales(solitario.uno,20,190,15,0);
       w.crearCartasVisuales(solitario.dos,130,190,15,0);
@@ -52,8 +53,6 @@ int main(int argc, char *argv[])
       w.crearCartasVisuales(solitario.seis,570,190,15,0);
       w.crearCartasVisuales(solitario.siete,680,190,15,0);
 
-
-
-     w.show();
+      w.show();
     return a.exec();
 }

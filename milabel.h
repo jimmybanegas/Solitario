@@ -29,8 +29,6 @@ signals:
 
 public slots:
 
-    /*void Mouse_Pos();
-    void Mouse_Left();*/
 
 };
 

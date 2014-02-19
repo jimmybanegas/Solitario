@@ -2,7 +2,6 @@
 
 void MazoPrincipal::generarCartas()
 {
-    //char rangos[] = {'1','2','3','4','5','6','7','8','9','0','J','Q','K'};
     QString rangos[] = {"1","2","3","4","5","6","7","8","9","10","J","Q","K"};
 
     for(int i=0;i<13;i++)
@@ -199,6 +198,5 @@ MazoPrincipal::MazoPrincipal()
      imagenes[49]= QPixmap(":/images/cards/CJ.png");
      imagenes[50]= QPixmap(":/images/cards/CQ.png");
      imagenes[51]= QPixmap(":/images/cards/CK.png");
-
 
 }

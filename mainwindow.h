@@ -30,6 +30,12 @@ public:
 
     MazoPrincipal *mazo;
 
+    MazoPrincipal *ord1;
+    MazoPrincipal *ord2;
+    MazoPrincipal *ord3;
+    MazoPrincipal *ord4;
+
+
     MazoPrincipal *uno;
     MazoPrincipal *dos;
     MazoPrincipal *tres;
@@ -40,7 +46,7 @@ public:
 
     //MazoPrincipal *barajear;
     Label *moviendo;
-
+    int redi;
     Juego juego;
    // MazoPrincipal *mazo;
     //MazoPrincipal *barajear;
@@ -50,9 +56,9 @@ public:
     void crearCartasVisuales2(MazoPrincipal mazox, int x, int y, int crecer);
     void setMazo(MazoPrincipal *mazo,MazoPrincipal *barajear,MazoPrincipal *uno,MazoPrincipal *dos,
                  MazoPrincipal *tres,MazoPrincipal *cuatro,MazoPrincipal *cinco,MazoPrincipal *seis,
-                 MazoPrincipal *siete);
+                 MazoPrincipal *siete, MazoPrincipal *ord1, MazoPrincipal *ord2, MazoPrincipal *ord3,
+                 MazoPrincipal *ord4);
     void setJuego(Juego juego);
- //   bool validarMovimiento(int x1, int x2, MazoPrincipal m, Label *newIcon, Label *moviendo);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 

@@ -18,10 +18,10 @@ public:
 
     MazoPrincipal barajear;
 
-    MazoOrdenado diamante;
-    MazoOrdenado trebol;
-    MazoOrdenado corazon;
-    MazoOrdenado espada;
+    MazoOrdenado ord1;
+    MazoOrdenado ord2;
+    MazoOrdenado ord3;
+    MazoOrdenado ord4;
 
     MazoMovimientos uno;
     MazoMovimientos dos;
