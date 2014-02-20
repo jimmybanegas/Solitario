@@ -9,7 +9,7 @@ miLabel::miLabel(QWidget *parent) :
 
 void miLabel::mouseMoveEvent(QMouseEvent *ev)
 {
-    cout<<"Posicion: "<<x<<" "<<y<<endl;
+
 }
 
 void miLabel::mousePressEvent(QMouseEvent *ev)

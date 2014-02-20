@@ -121,9 +121,7 @@ void MazoPrincipal::imprimir()
     cout<<"\nContador: "<<cont<<endl;
       Nodo *tem=inicio;
       for(int i=0;i<cont;i++){
-      //  cout<<tem->carta->isCaraAbajo() ;
         cout<<tem->carta->nombre().toStdString()<<endl;
-        //tem->carta->getImagen();
         tem=tem->siguiente;
       }
 }
