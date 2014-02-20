@@ -71,6 +71,7 @@ void MainWindow::crearCartasVisuales2(MazoPrincipal mazox, int x ,int y, int cre
     }
 
     miLabel *a = new miLabel(this);
+    //Label *a = new Label(this);
     a->nodo=mazox.recuperar(i);
     a->pertenece=&mazox;
     a->setPixmap(actual);
@@ -169,7 +170,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 
        if(newIcon->pos().rx()>15 && newIcon->pos().rx() <25 && uno->cont >= 1)
         {
-           Nodo *ultimo= uno->recuperar(uno->cont-1);
+           Nodo *ultimo= uno->recuperar((uno->cont)-1);
            rmov=moviendo->nodo->carta->getRango().toInt();
            newIcon->pertenece=uno;
 
@@ -209,7 +210,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 
         if(newIcon->pos().rx()>125 && newIcon->pos().rx() <135 && dos->cont >= 1)
         {
-           Nodo *ultimo = dos->recuperar(dos->cont-1);
+           Nodo *ultimo = dos->recuperar((dos->cont)-1);
 
            rmov=moviendo->nodo->carta->getRango().toInt();
            newIcon->pertenece=dos;
@@ -251,7 +252,7 @@ void MainWindow::dropEvent(QDropEvent *event)
         if(newIcon->pos().rx()>235 && newIcon->pos().rx() <245 && tres->cont >= 1)
         {
 
-           Nodo *ultimo= tres->recuperar(tres->cont-1);
+           Nodo *ultimo = tres->recuperar((tres->cont)-1);
            rmov=moviendo->nodo->carta->getRango().toInt();
            newIcon->pertenece=tres;
 
@@ -373,7 +374,7 @@ void MainWindow::dropEvent(QDropEvent *event)
 
         if(newIcon->pos().rx()>565 && newIcon->pos().rx() <575 && seis->cont >=1)
         {
-           Nodo *ultimo= seis->recuperar(seis->cont-1);
+           Nodo *ultimo= seis->recuperar((seis->cont)-1);
            newIcon->pertenece=seis;
 
            rmov=moviendo->nodo->carta->getRango().toInt();
@@ -453,6 +454,8 @@ void MainWindow::dropEvent(QDropEvent *event)
 
         }
 
+        cout<< newIcon->pos().rx()<<"NO SÉ SI ME ARROJARÁN"<<endl;
+
         if (event->source() == this && tirar) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -465,18 +468,38 @@ void MainWindow::dropEvent(QDropEvent *event)
             moviendo->pertenece->eliminar(moviendo->pertenece->cont-1);
             newIcon->pertenece->insertar(newIcon->pertenece->cont,newIcon->nodo);
 
-            crearCartasVisualesB(moviendo->pertenece,redi,190,15,0);
+            if(moviendo->pertenece!=mazo)
+            {
+                 crearCartasVisualesB(moviendo->pertenece,redi,190,15,0);
+            }
+
+
+            if (event->source() == this && tirar) {
+                event->setDropAction(Qt::MoveAction);
+                event->accept();
+
+                cout<<newIcon->nodo->carta->getColor().toStdString()<<endl;
+                cout<<newIcon->nodo->carta->getPalo().toStdString()<<endl;
+
+                cout<<"ANTES: mov"<<moviendo->pertenece->cont<<" "<<newIcon->pertenece->cont<<endl;
+
+                moviendo->pertenece->eliminar(moviendo->pertenece->cont-1);
+                newIcon->pertenece->insertar(newIcon->pertenece->cont,newIcon->nodo);
+
+                if(moviendo->pertenece!=mazo)
+                {
+                     crearCartasVisualesB(moviendo->pertenece,redi,190,15,0);
+                }
 
             cout<< newIcon->pos().rx()<<"HE SIDO ARROJADO"<<endl;
             cout<<"DESPUES: mov"<<moviendo->pertenece->cont<<" "<<newIcon->pertenece->cont<<endl;
             newIcon->show();
-
         } else {
-
-            event->acceptProposedAction();
+              event->acceptProposedAction();
         }
-    } else {
+       } else {
         event->ignore();
+      }
     }
 }
 
@@ -508,6 +531,8 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     moviendo=new Label(this);
     moviendo->nodo=child->nodo;
     moviendo->pertenece=child->pertenece;
+
+    cout<<"Moviendo pertenece: "<<moviendo->nodo->carta->nombre().toStdString()<<endl;
 
     if (!child)
      return;
@@ -554,7 +579,6 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::Mouse_Pressed()
 {
-
       int random;
       srand (time(NULL));
 
@@ -565,10 +589,10 @@ void MainWindow::Mouse_Pressed()
 
       Label *a = new Label(this);
       a->setPixmap(actual);
+      a->nodo=sel;
+      a->pertenece=mazo;
       a->setGeometry(130,41,99,135);
       a->raise();
       a->show();
-
-   cout<<"La has barajeado"<<endl;
-
+      cout<<"La has barajeado"<<endl;
 }
