@@ -429,7 +429,7 @@ void MainWindow::dropEvent(QDropEvent *event)
            }
         }
 
-        if(newIcon->pos().rx()>350 && newIcon->pos().rx() <360 && newIcon->pos().ry()==41)
+        if(newIcon->pos().rx()>350 && newIcon->pos().rx() <360 && newIcon->pos().ry() > 35 && newIcon->pos().ry() < 45)
         {
           if(ord1->cont==0 && newIcon->nodo->carta->getRango()=="A")
           {
@@ -480,14 +480,16 @@ void MainWindow::dropEvent(QDropEvent *event)
           }
         }
 
-        if(newIcon->pos().rx()>460 && newIcon->pos().rx() <470 && newIcon->pos().ry()==41)
+        if(newIcon->pos().rx()>460 && newIcon->pos().rx() <470 && newIcon->pos().ry() > 35 && newIcon->pos().ry() < 45)
         {
-          if(ord2->cont==0 && newIcon->nodo->carta->getRango()=="A")
+          if(ord2->cont==0 &&  moviendo->nodo->carta->getRango()=="A")
           {
              tirar=true;
           }
           else
           {
+             cout<<moviendo->nodo->carta->getRango().toStdString()<<endl;
+
               Nodo *ultimo= ord2->recuperar((ord1->cont)-1);
               newIcon->pertenece=ord2;
 
@@ -527,7 +529,7 @@ void MainWindow::dropEvent(QDropEvent *event)
           }
         }
 
-        if(newIcon->pos().rx()>570 && newIcon->pos().rx() <580 && newIcon->pos().ry()==41)
+        if(newIcon->pos().rx()>570 && newIcon->pos().rx() <580 && newIcon->pos().ry() > 35 && newIcon->pos().ry() < 45)
         {
           if(ord3->cont==0 && newIcon->nodo->carta->getRango()=="A")
           {
@@ -574,7 +576,7 @@ void MainWindow::dropEvent(QDropEvent *event)
           }
         }
 
-        if(newIcon->pos().rx()>680 && newIcon->pos().rx() <690 && newIcon->pos().ry()==41)
+        if(newIcon->pos().rx()>680 && newIcon->pos().rx() <690 && newIcon->pos().ry() > 35 && newIcon->pos().ry() < 45)
         {
           if(ord4->cont==0 && newIcon->nodo->carta->getRango()=="A")
           {
@@ -679,6 +681,9 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     moviendo->pertenece=child->pertenece;
 
     if (!child)
+     return;
+
+    if (child==centralWidget() )
      return;
 
     QPixmap pixmap = *child->pixmap();
