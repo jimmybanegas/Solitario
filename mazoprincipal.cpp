@@ -75,7 +75,10 @@ Nodo *MazoPrincipal::recuperar(int pos)
     Nodo *tem=inicio;
 
     for(int i=0;i<pos;i++){
-       tem=tem->siguiente;
+        if(tem==NULL)
+            return NULL;
+
+        tem=tem->siguiente;
     }
     return tem;
 }
